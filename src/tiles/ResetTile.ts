@@ -19,7 +19,7 @@ export class ResetTile extends Tile {
     });
 
     item.add(bgTile);
-    Konva.Image.fromURL('/skull.svg', (image: Konva.Image) => {
+    Konva.Image.fromURL('./skull.svg', (image: Konva.Image) => {
       image.setPosition({
         x: this.x * TILE_SIZE + TILE_SIZE / 2 - image.getWidth() / 2,
         y: this.y * TILE_SIZE + TILE_SIZE / 2 - image.getHeight() / 2,
