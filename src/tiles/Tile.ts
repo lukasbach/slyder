@@ -1,6 +1,6 @@
-import {ITileType} from "../../types";
+import {ITileType} from "../types";
 import Konva from "konva";
-import {TILE_SIZE} from "../../globals";
+import {TILE_SIZE} from "../globals";
 
 export abstract class Tile {
   protected strokeWidth = 0;

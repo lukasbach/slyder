@@ -1,7 +1,7 @@
 import {Tile} from "./Tile";
 import Konva from "konva";
-import {TILE_SIZE} from "../../globals";
-import {ITileType} from "../../types";
+import {TILE_SIZE} from "../globals";
+import {ITileType} from "../types";
 
 export class PlayerTile extends Tile {
   protected strokeWidth = 6;

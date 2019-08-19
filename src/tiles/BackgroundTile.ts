@@ -1,7 +1,7 @@
 import {Tile} from "./Tile";
 import Konva from "konva";
-import {TILE_SIZE} from "../../globals";
-import {ITileType} from "../../types";
+import {TILE_SIZE} from "../globals";
+import {ITileType} from "../types";
 
 export class BackgroundTile extends Tile {
   public createRenderItem(layer: Konva.Layer) {

@@ -1,5 +1,5 @@
 import {Tile} from "./tiles/Tile";
-import {BoardStatus, ITileType} from "../types";
+import {BoardStatus, ITileType} from "./types";
 import Konva from "konva";
 import {BackgroundTile} from "./tiles/BackgroundTile";
 import {StartTile} from "./tiles/StartTile";
@@ -7,7 +7,7 @@ import {TargetTile} from "./tiles/TargetTile";
 import {ResetTile} from "./tiles/ResetTile";
 import {WallTile} from "./tiles/WallTile";
 import {PlayerTile} from "./tiles/PlayerTile";
-import {TILE_SIZE} from "../globals";
+import {TILE_SIZE} from "./globals";
 
 export class Board {
   private tiles: Tile[];

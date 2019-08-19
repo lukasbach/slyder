@@ -1,5 +1,5 @@
 import {Board} from "./Board";
-import {BoardStatus} from "../types";
+import {BoardStatus} from "./types";
 
 export class Level {
   private boards: Board[];

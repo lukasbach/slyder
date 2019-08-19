@@ -1,6 +1,6 @@
-import UrlRoutingService from "./services/UrlRoutingService";
-import {Campaign} from "./services/Campaign";
-import {IntroScreen} from "./services/tiles/IntroScreen";
+import UrlRoutingService from "./UrlRoutingService";
+import {Campaign} from "./Campaign";
+import {IntroScreen} from "./tiles/IntroScreen";
 
 declare const module: any;
 
