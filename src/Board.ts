@@ -16,6 +16,7 @@ export class Board {
 
   private container: HTMLDivElement;
   private stage: Konva.Stage;
+  private playerLayer: Konva.Layer;
   private foregroundLayer: Konva.Layer;
   private backgroundLayer: Konva.Layer;
 
@@ -47,11 +48,17 @@ export class Board {
     });
     (this.container.firstChild as HTMLCanvasElement).style.backgroundColor = this.colorScheme[1];
 
+    this.playerLayer = new Konva.Layer({});
     this.foregroundLayer = new Konva.Layer({});
     this.backgroundLayer = new Konva.Layer({});
 
+    this.stage.add(this.playerLayer);
     this.stage.add(this.foregroundLayer);
     this.stage.add(this.backgroundLayer);
+
+    this.playerLayer.setZIndex(100);
+    this.foregroundLayer.setZIndex(2);
+    this.backgroundLayer.setZIndex(1);
 
     for (let y = 0; y < map.length; y++) {
       for (let x = 0; x < map[y].length; x++) {
@@ -60,9 +67,8 @@ export class Board {
           this.tiles.push(this.createTile(x, y, tileType, this.backgroundLayer));
 
           if (tileType === "start") {
-            this.tiles.push(this.createTile(x, y, "player", this.backgroundLayer));
+            this.tiles.push(this.createTile(x, y, "player", this.playerLayer));
           }
-          // this.tiles.push(new Tile(x, y, tileType, this.backgroundLayer));
         }
       }
     }
