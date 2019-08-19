@@ -27,7 +27,7 @@ export class Level {
 
         this.nextRefreshTimeout = setTimeout(() => {
           if (this.boards.map(b => b.boardStatus === BoardStatus.HasWon).reduce((a, b) => a && b, true)) {
-            this.onNextLevel();
+            setTimeout(() => this.onNextLevel(), 500);
           }
         }, 0);
       }));
