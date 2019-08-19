@@ -1,5 +1,4 @@
 import {Level} from "./Level";
-import Konva from "konva";
 import UrlRoutingService from "./UrlRoutingService";
 
 export class Campaign {
