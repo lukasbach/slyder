@@ -1,25 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import {Layer, Rect, Stage} from "react-konva";
+import {Campaign} from "./services/Campaign";
+import UrlRoutingService from "./services/UrlRoutingService";
+import {IntroScreen} from "./services/tiles/IntroScreen";
 
 const App: React.FC = () => {
+  useEffect(() => {
+    (async () => {
+      const url = UrlRoutingService.getCampaignUrl();
+      console.log(`Loading campaign from ${url}.`)
+      const c = new Campaign(url);
+      await c.load();
+      await (new IntroScreen()).display();
+      c.loadLevel(UrlRoutingService.getLevel());
+    })();
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div id={'gameroot'} />
   );
 }
 
