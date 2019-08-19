@@ -21,18 +21,21 @@ export class Campaign {
   }
 
   public loadLevel(id: number) {
+    document.getElementById('gameroot')!.innerHTML = '';
     console.log(`Loading level ${id}`, this.levels[id]);
     UrlRoutingService.setLevel('' + id);
     this.levels.forEach(l => l.unload());
     this.currentLevel = id;
     this.levels[id].load();
+    this.loadFooter();
   }
 
   private async loadTextFromUrl(url: string): Promise<string> {
     const f = await fetch(url);
     return (await f.text())
       .replace(/\r\n/g, '\n') // Sanitize line breaks
-      .replace(/\/\/[\w\W]*?\n/g, ''); // Remove comments
+      .replace(/\/\/[\w\W]*?\n/g, '') // Remove comments
+      .replace(/\n+!level/g, '\n!level');
 
     // .split('\n').filter(l => l !== '').join('\n')
   }
@@ -50,11 +53,10 @@ export class Campaign {
     levels.splice(0, 1);
 
     for (let level of levels) {
-      const colorSchemeText = this.findParameterInPreamble('color', level);
+      let colorSchemeText = this.findParameterInPreamble('color', level);
 
       if (!colorSchemeText) {
-        console.log(level, levels);
-        throw Error(`No color scheme supplied in level ${level}.`);
+        colorSchemeText = '6e2142 943855 e16363 ffd692';
       }
 
       const colorScheme = colorSchemeText.split(' ').map(c => `#${c}`);
@@ -87,6 +89,19 @@ export class Campaign {
     } else {
       return undefined;
     }
+  }
+
+  private loadFooter() {
+    const footer = document.createElement('p');
+    document.getElementById('gameroot')!.append(footer);
+    footer.className = 'footer';
+    footer.innerHTML = `
+      Made by <a href="https://lukasbach.com" target="_blank">Lukas Bach</a>.
+      Also check out <a href="https://lukasbach.github.io/hexagonopolis/" target="_blank">Hexagonopolis</a>
+      and <a href="https://devsession.js.org" target="_blank">DevSession</a>.<br />
+      <a href="https://github.com/lukasbach/slyder/blob/master/level-creation.md" target="_blank">How to design your own level</a> - 
+      <a href="https://github.com/lukasbach/slyder" target="_blank">GitHub Source</a>
+    `;
   }
 
 

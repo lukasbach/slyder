@@ -43,3 +43,23 @@ html, body, #root {
   max-width: 50%;
   margin-left: 25%;
 }
+
+#gameroot > p.footer {
+  font-family: 'Acme', sans-serif;
+  color: #e16363;
+  font-size: 1em;
+  line-height: 1.6em;
+}
+
+#gameroot > p.footer > a {
+  color: #e16363;
+  text-decoration: none;
+  border-bottom: 2px solid #e16363;
+  padding: 0 0 2px 0;
+}
+
+#gameroot > p.footer > a:hover {
+  padding: 2px 0 0 0;
+
+}
+#gameroot > p.footer > a:active {}
