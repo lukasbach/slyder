@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Acme&display=swap');
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#root {
+  background-color: #6e2142;
+}
+
+#gameroot {
+  text-align: center;
+}
+
+#gameroot > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1em;
+}
+
+#gameroot > h1 {
+  font-family: 'Acme', sans-serif;
+  color: #ffd692;
+  font-size: 8em;
+  margin: .2em 0;
+}
+
+#gameroot > p {
+  font-family: 'Acme', sans-serif;
+  color: #e16363;
+  font-size: 2em;
+  max-width: 50%;
+  margin-left: 25%;
+}
+
+#gameroot > p.footer {
+  font-family: 'Acme', sans-serif;
+  color: #e16363;
+  font-size: 1em;
+  line-height: 1.6em;
+}
+
+#gameroot > p.footer > a {
+  color: #e16363;
+  text-decoration: none;
+  border-bottom: 2px solid #e16363;
+  padding: 0 0 2px 0;
+}
+
+#gameroot > p.footer > a:hover {
+  padding: 2px 0 0 0;
+
+}
+#gameroot > p.footer > a:active {}
